@@ -1,0 +1,30 @@
+{
+  "name": "astral",
+  "version": "1.0.0",
+  "description": "A universal discord bot designed to fit general server needs.",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnthonyRicardoKX/astral.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "javascript",
+    "js",
+    "node"
+  ],
+  "author": "AnthonyRicardoKX",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/AnthonyRicardoKX/astral/issues"
+  },
+  "homepage": "https://github.com/AnthonyRicardoKX/astral#readme"
+}
