@@ -4,7 +4,8 @@
   "description": "A universal discord bot designed to fit general server needs.",
   "main": "index.js",
   "dependencies": {
-    "discord.js": "^12.5.0"
+    "discord.js": "^12.5.0",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {},
   "scripts": {
