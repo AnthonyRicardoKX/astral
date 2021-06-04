@@ -13,7 +13,10 @@ module.exports = async (client, message) => {
     let command = client.commands[userCommand] || client.commands[client.aliases[userCommand]];
     
     if (command !== undefined) {
-        console.log(userMessage);
+        if (userMessage.length < command.conf.minParam || userMessage.length > command.conf.maxParam) {
+            message.channel.send(`<@${message.author.id}> Too little or too many parameter given for this command.`);
+            return 0;
+        }
         command.run(client, message, userMessage);
     }
 };

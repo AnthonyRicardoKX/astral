@@ -3,24 +3,26 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
 
+client.db = require('./database.js').db;
 client.commands = [];
 client.aliases = [];
 
-// Iteratively read ./commands/genshin directory to enable all command files
-fs.readdir('./commands/genshin/', (err, files) => {
+// Iteratively read ./commands/ directory to enable all command files
+fs.readdir('./commands/', (err, files) => {
   if (err) console.error(err);
-  console.log(`Loading Genshin-related ${files.length} commands.`);
+  console.log(`Loading general ${files.length} commands.`);
   files.forEach(file => {
     if (file.split(".").slice(-1)[0] !== "js") return;
-    let props = require(`./commands/genshin/${file}`);
-    client.commands[props.help.name] = props;
-    if (props.init) props.init(Client);
-    props.conf.aliases.forEach(alias => {
-      client.aliases[alias] = props.help.name;
-    });
+    let props = require(`./commands/${file}`);
+
+    if (props.conf.enabled != false) {
+      client.commands[props.help.name] = props;
+      if (props.init) props.init(Client);
+      props.conf.aliases.forEach(alias => {
+        client.aliases[alias] = props.help.name;
+      });
+    }
   });
-  console.log(client.commands);
-  console.log(client.aliases);
 });
 
 // Iteratively read ./events directoy to setup all events listed as files
