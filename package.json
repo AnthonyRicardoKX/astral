@@ -12,8 +12,13 @@
   "devDependencies": {
     "sequelize-cli": "^6.2.0"
   },
+  "engines": {
+    "node": "14.x",
+    "npm": "*"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
